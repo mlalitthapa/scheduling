@@ -1,15 +1,14 @@
-import { Text, View } from 'react-native';
+import ScreenLayout from '@/components/ScreenLayout';
+import Appointments from '@/components/home/Appointments';
+import BookAppointment from '@/components/home/BookAppointment';
 
-export default function Index() {
+const Index = () => {
   return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-      }}
-    >
-      <Text>Edit app/index.tsx to edit this screen.</Text>
-    </View>
+    <ScreenLayout>
+      <Appointments />
+      <BookAppointment />
+    </ScreenLayout>
   );
-}
+};
+
+export default Index;
