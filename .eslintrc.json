@@ -1,0 +1,50 @@
+{
+  "env": {
+      "es2021": true
+  },
+  "extends": [
+      "eslint:recommended",
+      "plugin:@typescript-eslint/recommended",
+      "plugin:react/recommended",
+      "plugin:react/jsx-runtime"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+      "ecmaVersion": "latest",
+      "sourceType": "module"
+  },
+  "plugins": [
+      "@typescript-eslint",
+      "react"
+  ],
+  "overrides": [
+      {
+        // Test files only
+        "files": ["**/__tests__/**/*.[jt]s?(x)', '**/?(*.)+(spec|test).[jt]s?(x)"],
+        "extends": ["plugin:testing-library/react"]
+      }
+    ],
+  "settings": {
+      "react": {
+          "version": "detect"
+      }
+  },
+  "rules": {
+      "indent": [
+          "error",
+          2
+      ],
+      "linebreak-style": [
+          "error",
+          "unix"
+      ],
+      "quotes": [
+          "error",
+          "single"
+      ],
+      "semi": [
+          "error",
+          "always"
+      ]
+  }
+}
