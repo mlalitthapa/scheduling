@@ -10,18 +10,22 @@ const AppLayout = () => {
       <Stack screenOptions={{ 
         headerTitleAlign: 'center',
         contentStyle: {
-          backgroundColor: theme.colors.secondary
+          backgroundColor: theme.colors.secondary,
         },
         headerBackTitleVisible: false,
         headerStyle: {
-          backgroundColor: theme.colors.primary
+          backgroundColor: theme.colors.primary,
         },
         headerTintColor: theme.colors.secondary,
-        statusBarColor: theme.colors.primary
+        statusBarColor: theme.colors.primary,
       }}>
         <Stack.Screen
           name="index"
           options={{ headerTitle: 'My Appointments' }}
+        />
+        <Stack.Screen
+          name="coaches/index"
+          options={{ headerTitle: 'Coaches' }}
         />
       </Stack>
     </QueryClientProvider>
