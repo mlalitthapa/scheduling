@@ -27,6 +27,10 @@ const AppLayout = () => {
           name="coaches/index"
           options={{ headerTitle: 'Coaches' }}
         />
+        <Stack.Screen
+          name="coaches/book"
+          options={{ headerTitle: '...' }}
+        />
       </Stack>
     </QueryClientProvider>
   );
