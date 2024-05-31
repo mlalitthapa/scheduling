@@ -4,7 +4,7 @@ import { Text, View } from 'react-native';
 
 const NoAppointments = () => {
   return (
-    <View className='items-center'>
+    <View className='items-center justify-center flex-grow'>
       <MaterialIcons name='playlist-remove' size={48} color={theme.colors.primary} />
       <Text className='text-primary text-base font-semibold'>You do not have any appointments booked</Text>
     </View>

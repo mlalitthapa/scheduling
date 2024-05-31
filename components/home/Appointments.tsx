@@ -7,8 +7,8 @@ const Appointments = () => {
       data={[]}
       renderItem={() => <View className='w-full h-16' />}
       ListEmptyComponent={<NoAppointments />}
-      className='h-full'
-      contentContainerStyle={{ flexGrow: 1, justifyContent: 'center', alignItems: 'center' }}
+      className='flex-1'
+      contentContainerStyle={{ flexGrow: 1 }}
     />
   );
 };

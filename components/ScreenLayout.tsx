@@ -7,7 +7,7 @@ type Props = {
 
 const ScreenLayout = ({ children }: Props) => {
   return (
-    <SafeAreaView edges={['bottom', 'left', 'right']} className='pt-4 px-4'>
+    <SafeAreaView edges={['bottom', 'left', 'right']} className='pt-4 px-4 flex-1'>
       {children}
     </SafeAreaView>
   );
