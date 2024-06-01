@@ -1,17 +1,22 @@
+import SecondaryButton from '@/components/ui/buttons/SecondaryButton';
 import { SlotDuration } from '@/models/availability';
-import { Pressable, Text, View } from 'react-native';
+import { Text, View } from 'react-native';
 
 type Props = {
   item: SlotDuration
+  onBook: (slot: SlotDuration) => void
+  isBooking?: boolean
 }
 
-const SlotListItem = ({ item }: Props) => {
+const SlotListItem = ({ item, onBook, isBooking }: Props) => {
+  const onBookSlot = () => {
+    if (!isBooking) onBook(item);
+  };
+
   return (
     <View className='bg-primary p-4 flex-row justify-between items-center rounded-md mx-4'>
       <Text className='text-white text-lg'>{item.startTime} - {item.endTime}</Text>
-      <Pressable className='bg-secondary py-1 px-2 rounded-lg'>
-        <Text className='text-primary font-semibold'>Book</Text>
-      </Pressable>
+      <SecondaryButton text='Book' disabled={isBooking} onPress={onBookSlot} />
     </View>
   );
 };

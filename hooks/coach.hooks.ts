@@ -1,9 +1,12 @@
+import { useBookings } from '@/hooks/booking.hooks';
 import { AvailableSlot, Coach, DailySlots } from '@/models/availability';
 import moment from 'moment-timezone';
 import { useMemo, useState } from 'react';
 
 export const useAvailableTimes = (coach: Coach) => {
   const [selectedDay, setSelectedDay] = useState<DailySlots>();
+
+  const { bookings } = useBookings();
 
   const availableSlots = useMemo(() => {
     const dailySlots = coach.availabilities.map((availability: AvailableSlot) => {
@@ -13,10 +16,22 @@ export const useAvailableTimes = (coach: Coach) => {
   
       const slots = [];
       while (startTime.isBefore(endTime)) {
-        slots.push({
-          startTime: startTime.format('h:mm a'),
-          endTime: startTime.add(30, 'minutes').format('h:mm a'),
+        const startTimeString = startTime.format('h:mm a');
+        const endTimeString = startTime.add(30, 'minutes').format('h:mm a');
+
+        const isSlotBooked = bookings?.some((booking) => {
+          return booking.coach === coach.name &&
+            booking.dayOfTheWeek === availability.day_of_week &&
+            booking.startTime === startTimeString &&
+            booking.endTime === endTimeString;
         });
+
+        if (!isSlotBooked) {
+          slots.push({
+            startTime: startTimeString,
+            endTime: endTimeString,
+          });
+        }
       }
   
       return {
@@ -41,7 +56,7 @@ export const useAvailableTimes = (coach: Coach) => {
     }
       
     return Object.values(combinedDailySlots);
-  }, [coach]);
+  }, [coach, bookings]);
 
   return {
     selectedDay: selectedDay || availableSlots[0],
