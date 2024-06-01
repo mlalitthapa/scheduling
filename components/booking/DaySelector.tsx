@@ -9,15 +9,17 @@ type Props = {
   onClose: () => void;
   onDaySelected: (day: DailySlots) => void;
   availableSlots: DailySlots[];
+  testID?: string;
 }
 
-const DaySelector = ({ isOpen, onClose, onDaySelected, availableSlots }: Props) => {
+const DaySelector = ({ isOpen, onClose, onDaySelected, availableSlots, testID }: Props) => {
   return (
     <Modal
       visible={isOpen}
       onRequestClose={onClose}
       animationType='slide'
       transparent
+      testID={testID}
     >
       <SafeAreaView className='flex-1 justify-end bg-[#00000080]'>
         <View className='bg-secondary px-4 pt-4 pb-6'>
@@ -33,7 +35,7 @@ const DaySelector = ({ isOpen, onClose, onDaySelected, availableSlots }: Props) 
             ))}
           </View>
 
-          <Pressable className='self-center mt-10' onPress={onClose}>
+          <Pressable className='self-center mt-10' onPress={onClose} accessibilityLabel='Close'>
             <Ionicons name='close-circle' size={48} color={theme.colors.primary} />
           </Pressable>
         </View>
