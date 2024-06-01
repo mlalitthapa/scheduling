@@ -1,4 +1,4 @@
-import TextInput from '@/components/ui/buttons/TextInput';
+import TextInput from '@/components/ui/TextInput';
 import debounce from '@/utils/debounce';
 import { Platform, View } from 'react-native';
 
