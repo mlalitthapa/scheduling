@@ -18,6 +18,7 @@ describe('Search input', () => {
   it('should call onSearch function with input after 500ms', async () => {
     const input = screen.getByPlaceholderText('Search');
     const user = userEvent.setup();
+    jest.useFakeTimers();
 
     await user.type(input, CHANGED_TEXT);
     expect(onSearch).toHaveBeenCalledTimes(0);
