@@ -4,12 +4,13 @@ import { Text } from 'react-native';
 
 test('Floating Action Button works', () => { 
   render(
-    <FAButton>
+    <FAButton testID='book-button'>
       <Text>Book</Text>
-    </FAButton>
+    </FAButton>,
   );
 
-  const button = screen.getByRole('button', { name: 'Book' });
+  const button = screen.getByTestId('book-button');
 
   expect(button).toBeOnTheScreen();
+  expect(button).toHaveTextContent('Book');
 });
