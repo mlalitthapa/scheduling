@@ -9,7 +9,7 @@ const SecondaryButton = ({ text, loading, ...props }: Props) => {
   return (
     <Pressable className='px-3 py-2 bg-secondary rounded-lg' disabled={loading} {...props}>
       {loading
-        ? <ActivityIndicator />
+        ? <ActivityIndicator accessibilityLabel="Loading" />
         : <Text className='text-primary font-semibold'>{text}</Text>
       }
     </Pressable>
