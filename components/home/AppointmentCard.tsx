@@ -15,7 +15,12 @@ const AppointmentCard = ({ item, onCancel, isCancelling }: Props) => {
       <Text className="text-white text-lg">{item.dayOfTheWeek}</Text>
       <Text className='text-white text-base'>{item.startTime} - {item.endTime} ({item.timezone})</Text>
       <View className='mt-3 self-start'>
-        <SecondaryButton text='Cancel' onPress={() => onCancel(item)} loading={isCancelling} />
+        <SecondaryButton
+          text='Cancel'
+          onPress={() => onCancel(item)}
+          loading={isCancelling}
+          testID='cancel-button'
+        />
       </View>
     </View>
   );
