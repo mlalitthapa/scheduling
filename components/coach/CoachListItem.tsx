@@ -1,22 +1,18 @@
 import { Coach } from '@/models/availability';
-import { useRouter } from 'expo-router';
 import { Pressable, Text, View } from 'react-native';
 
 type Props = {
-  coach: Pick<Coach, 'name' | 'timezone'>;
+  coach: Coach;
+  onPress: (coach: Coach) => void;
+  testId?: string;
 }
 
-const CoachListItem = ({ coach }: Props) => {
-  const router = useRouter();
-
-  const navigateToAvailability = () => {
-    router.navigate({ pathname: 'coaches/book', params: { coach: JSON.stringify(coach) } });
-  };
-
+const CoachListItem = ({ coach, onPress, testId }: Props) => {
   return (
     <Pressable
       className='mb-4 flex-row bg-primary justify-between p-4 items-center rounded-lg'
-      onPress={navigateToAvailability}
+      testID={testId}
+      onPress={() => onPress(coach)}
     >
       <View>
         <Text className='text-secondary text-xl font-semibold'>{coach.name}</Text>
