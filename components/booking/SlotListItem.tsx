@@ -16,7 +16,12 @@ const SlotListItem = ({ item, onBook, isBooking }: Props) => {
   return (
     <View className='bg-primary p-4 flex-row justify-between items-center rounded-md mx-4'>
       <Text className='text-white text-lg'>{item.startTime} - {item.endTime}</Text>
-      <SecondaryButton text='Book' disabled={isBooking} onPress={onBookSlot} />
+      <SecondaryButton
+        text='Book'
+        disabled={isBooking}
+        onPress={onBookSlot}
+        accessibilityLabel='Book'
+      />
     </View>
   );
 };
