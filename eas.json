@@ -1,0 +1,28 @@
+{
+  "cli": {
+    "version": ">= 9.1.0"
+  },
+  "build": {
+    "production": {
+      "channel": "production",
+      "node": "20.10.0",
+      "env": {
+        "API_URL": "https://raw.githubusercontent.com"
+      },
+      "ios": {
+        "simulator": true
+      },
+      "android": {
+        "buildType": "apk"
+      }
+    },
+    "development": {
+      "extends": "production",
+      "developmentClient": true,
+      "distribution": "internal"
+    },
+    "preview": {
+      "distribution": "internal"
+    }
+  }
+}

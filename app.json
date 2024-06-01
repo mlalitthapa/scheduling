@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "Scheduling",
-    "slug": "scheduling",
+    "slug": "scheduler",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -13,19 +13,38 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
+      "bundleIdentifier": "com.mlalitthapa.scheduler",
+      "buildNumber": "1",
       "supportsTablet": false
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "versionCode": 1,
+      "package": "com.mlalitthapa.scheduler"
     },
     "plugins": [
       "expo-router"
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "63d3b7cd-0109-4e65-96bc-89096eb5dcfe"
+      }
+    },
+    "owner": "mlalitthapa",
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/63d3b7cd-0109-4e65-96bc-89096eb5dcfe"
     }
   }
 }
