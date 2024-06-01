@@ -4,12 +4,13 @@ import { Platform, Pressable, Text, View } from 'react-native';
 type Props = {
   text: string;
   onPress: () => void;
+  testID?: string;
 }
 
-const DaySelectorButton = ({ text, onPress }: Props) => {
+const DaySelectorButton = ({ text, onPress, testID }: Props) => {
   return (
     <>
-      <Pressable className='bg-accent p-4 items-center flex-row justify-center gap-x-4' onPress={onPress}>
+      <Pressable className='bg-accent p-4 items-center flex-row justify-center gap-x-4' onPress={onPress} testID={testID}>
         <Text className='text-white text-xl font-bold'>{text}</Text>
         <Ionicons name='chevron-up-circle' size={24} color={'white'} />
       </Pressable>

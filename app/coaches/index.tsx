@@ -3,6 +3,8 @@ import CoachListItem from '@/components/coach/CoachListItem';
 import NoCoaches from '@/components/coach/NoCoaches';
 import SearchCoach from '@/components/coach/SearchCoach';
 import { useCoaches } from '@/hooks/availability.hooks';
+import { Coach } from '@/models/availability';
+import { useRouter } from 'expo-router';
 import { FlatList } from 'react-native';
 
 const Coaches = () => {
@@ -13,8 +15,14 @@ const Coaches = () => {
     setSearchText,
   } = useCoaches();
 
+  const router = useRouter();
+
   const handleSearch = (text: string) => {
     setSearchText(text);
+  };
+
+  const navigateToAvailability = (coach: Coach) => {
+    router.navigate({ pathname: 'coaches/book', params: { coach: JSON.stringify(coach) } });
   };
 
   return (
@@ -23,7 +31,7 @@ const Coaches = () => {
 
       <FlatList
         data={coaches || []}
-        renderItem={({ item }) => <CoachListItem coach={item} />}
+        renderItem={({ item }) => <CoachListItem coach={item} onPress={navigateToAvailability} />}
         ListEmptyComponent={<NoCoaches />}
         refreshing={isLoading}
         onRefresh={refresh}
